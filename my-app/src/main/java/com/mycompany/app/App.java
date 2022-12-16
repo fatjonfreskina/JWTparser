@@ -5,6 +5,7 @@ Two different methods on the object to 1) Simply deconde and 2) Validate the tok
 2) Even better, reduce the number of parameters took by the constructor by removing the hashing algorithm.
 This for now is hardcoded, however it could be extracted by the token! "alg" field of the header
 3) Write unit tests for testing the algorithm with some hard-coded examples.
+4) Exception is too generic: build/use an appropriate one 
 
 Useful doc:
 About the code: https://www.baeldung.com/java-jwt-token-decode
@@ -25,13 +26,14 @@ public class App {
         
         // Go to https://jwt.io/#encoded-jwt and insert a key
         
-        String keyExample = "test";
-        String JWTexample = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkJhZWxkdW5nIFVzZXIiLCJpYXQiOjE1MTYyMzkwMjJ9.cBeAV24jl6povEuEFWnSgaAcHNZwwjsj6uAn6Ps0ifE";
+        String keyExample = "tet";
+        String JWTexample = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.5mhBHqs5_DTLdINd9p5m7ZJ6XD0Xc55kIaCRY5r6HRA";
         
         // Test
 
         decodeJWTToken(JWTexample);
-        decodeAndValidateJWTToken(JWTexample, keyExample);
+        System.out.println(decodeAndValidateJWTToken(JWTexample, keyExample));
+        
     }
     
     /**
